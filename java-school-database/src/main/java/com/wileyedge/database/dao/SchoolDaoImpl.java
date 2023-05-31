@@ -78,7 +78,7 @@ public class SchoolDaoImpl implements SchoolDao {
 
         String sql = "SELECT course.courseCode, course.courseDesc, COUNT(course_student.student_id)\n"
         		+ " AS `numStudents` FROM course JOIN course_student ON\n"
-        		+ " course.cid=course_student.course_id GROUP BY course_student.student_id;";
+        		+ " course.cid=course_student.course_id GROUP BY course.courseCode;";
 
         // YOUR CODE ENDS HERE
         return jdbcTemplate.query(sql, new StudentCountMapper());
